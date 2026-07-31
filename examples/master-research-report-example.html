@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Master Research Report, Kids Recovery Pillow</title>
+<style>
+  :root {
+    --night-green: #003C3C;
+    --night-green-deep: #002626;
+    --emerald: #00DE83;
+    --cream: #F7F4EF;
+    --ink: #1A1A1A;
+    --soft-ink: #4A4A4A;
+    --callout-bg: #E8F5EE;
+    --hairline: rgba(0, 60, 60, 0.22);
+  }
+  @page {
+    size: A4 landscape;
+    margin: 42px 34px 46px;
+    @top-left { content: "MASTER RESEARCH REPORT"; font-family: 'Poppins'; font-size: 8px; font-weight: 600; letter-spacing: 0.1em; color: #003C3C; }
+    @top-right { content: "KIDS RECOVERY PILLOW · JUNE 2026"; font-family: 'Poppins'; font-size: 8px; font-weight: 600; letter-spacing: 0.1em; color: #003C3C; }
+    @bottom-left { content: url('assets/brand-mark-small.png'); }
+    @bottom-center { content: counter(page); font-family: 'Poppins'; font-size: 9.5px; font-weight: 500; color: #4A4A4A; }
+  }
+  @page cover { margin: 0; @top-left { content: none } @top-right { content: none } @bottom-left { content: none } @bottom-center { content: none } }
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+  body { background: #ffffff; color: var(--ink); }
+
+  .cover {
+    page: cover;
+    width: 297mm; height: 209mm;
+    background-image: url('assets/cover-bg.png');
+    background-size: cover; background-position: center;
+    background-color: var(--night-green-deep);
+    color: #fff;
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 54px 56px;
+    page-break-after: always;
+  }
+  .cover-logo { height: 40px; width: auto; display: block; }
+  .cover-mid { flex: 1; display: flex; align-items: center; }
+  .cover-title { font-size: 104px; font-weight: 700; line-height: 0.92; letter-spacing: -0.04em; color: #fff; }
+  .cover-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; }
+  .cover-divider { width: 60px; height: 2px; background: var(--emerald); margin-bottom: 16px; }
+  .cover-subhead { font-size: 16px; line-height: 1.5; color: rgba(255,255,255,0.78); max-width: 360px; }
+  .cover-meta { text-align: right; }
+  .cover-meta-label { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--emerald); margin-bottom: 6px; }
+  .cover-meta-val { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+  .ppage { page-break-before: always; }
+
+  .sec { margin: 0 0 12px; page-break-after: avoid; page-break-inside: avoid; }
+  .sec-eyebrow-row { display: flex; align-items: baseline; gap: 9px; margin-bottom: 4px; }
+  .sec-num { font-size: 16px; font-weight: 700; color: var(--emerald); letter-spacing: -0.02em; }
+  .sec-slash { font-size: 13px; color: var(--soft-ink); }
+  .sec-eyebrow { font-size: 10.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--emerald); }
+  h1.sec-h1 { font-size: 26px; font-weight: 700; line-height: 1.08; letter-spacing: -0.015em; color: var(--night-green); margin-bottom: 5px; }
+  .sec-lead { font-size: 11.5px; line-height: 1.55; color: var(--ink); max-width: 880px; }
+  h2.sub { font-size: 14px; font-weight: 600; color: var(--night-green); display: inline-block; border-bottom: 2.5px solid var(--emerald); padding-bottom: 3px; margin: 14px 0 8px; page-break-after: avoid; }
+
+  p.body { font-size: 11px; line-height: 1.6; margin-bottom: 8px; max-width: 900px; }
+  ul.dots { list-style: none; margin: 4px 0 8px; padding: 0; }
+  ul.dots li { font-size: 10.5px; line-height: 1.55; position: relative; padding: 2px 0 2px 18px; }
+  ul.dots li::before { content: ''; position: absolute; left: 0; top: 8px; width: 9px; height: 9px; border-radius: 2.5px; background: var(--emerald); }
+  ul.dots li strong { color: var(--night-green); font-weight: 600; }
+
+  table { width: 100%; border-collapse: collapse; margin: 8px 0 12px; border: 0.6px solid var(--hairline); }
+  thead { display: table-header-group; }
+  th {
+    background: var(--night-green); color: var(--cream);
+    font-size: 8.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    text-align: left; padding: 6px 9px; line-height: 1.3;
+    border-right: 0.6px solid rgba(247,244,239,0.25);
+  }
+  th:last-child { border-right: none; }
+  td {
+    font-size: 10.5px; line-height: 1.5; color: var(--ink);
+    padding: 6px 9px; border-bottom: 0.6px solid var(--hairline);
+    border-right: 0.6px solid var(--hairline);
+    vertical-align: top; background: #fff;
+  }
+  td:last-child { border-right: none; }
+  tr { page-break-inside: avoid; }
+  td.k { font-weight: 600; color: var(--night-green); }
+  td.c { text-align: center; }
+  td.win { background: rgba(0,222,131,0.14); font-weight: 600; color: var(--night-green); }
+  td.q { font-style: italic; color: var(--night-green); }
+  td ul { list-style: none; margin: 0; padding: 0; }
+  td ul li { font-size: 10px; line-height: 1.5; position: relative; padding: 1px 0 1px 13px; }
+  td ul li::before { content: ''; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 2px; background: var(--emerald); }
+  .small-note { font-size: 9px; color: var(--soft-ink); line-height: 1.5; margin: -4px 0 10px; }
+  a { color: var(--night-green); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--emerald); }
+
+  .callout-dark { background: var(--night-green-deep); padding: 13px 18px; border-radius: 2px; margin: 8px 0 12px; page-break-inside: avoid; }
+  .callout-dark .ch { font-size: 9.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--emerald); margin-bottom: 5px; }
+  .callout-dark .cb { font-size: 11px; line-height: 1.5; color: var(--cream); }
+  .callout-dark .cb strong { color: #fff; }
+  .callout {
+    background: var(--callout-bg); border-left: 3px solid var(--emerald);
+    padding: 11px 16px; margin: 8px 0 12px; page-break-inside: avoid;
+  }
+  .callout .ch { font-size: 9.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--night-green); margin-bottom: 4px; }
+  .callout .cb { font-size: 10.5px; line-height: 1.5; color: var(--ink); }
+
+  /* TREND CHART CARDS */
+  .chart-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 8px 0 12px; }
+  .chart-card { background: #fff; border: 0.6px solid var(--hairline); border-radius: 4px; padding: 12px 14px 8px; page-break-inside: avoid; }
+  .chart-kw { font-size: 12px; font-weight: 700; color: var(--night-green); }
+  .chart-meta { font-size: 9px; color: var(--soft-ink); margin-bottom: 6px; }
+  .chart-meta strong { color: var(--night-green); }
+  .chart-tag { display: inline-block; background: rgba(0,222,131,0.2); color: var(--night-green); font-size: 8.5px; font-weight: 600; padding: 1px 7px; border-radius: 8px; margin-left: 5px; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div><img class="cover-logo" src="assets/brand-wordmark-white.png" alt="Brand wordmark"></div>
+  <div class="cover-mid">
+    <h1 class="cover-title">Master Research<br>Report.</h1>
+  </div>
+  <div class="cover-bottom">
+    <div>
+      <div class="cover-divider"></div>
+      <p class="cover-subhead">Kids recovery pillow market. Input: cloudnite.com. Live data, June 2026.</p>
+    </div>
+    <div class="cover-meta">
+      <div class="cover-meta-label">INSIDE</div>
+      <div class="cover-meta-val">14 sections, 20+ tables,<br>verbatim customer voice throughout</div>
+    </div>
+  </div>
+</div>
+
+<!-- P2 / 01 EXECUTIVE SUMMARY -->
+<div class="sec">
+  <div class="sec-eyebrow-row"><span class="sec-num">01</span><span class="sec-slash">/</span><span class="sec-eyebrow">EXECUTIVE SUMMARY</span></div>
+  <h1 class="sec-h1">The Brand in One Table.</h1>
+</div>
+<div class="callout-dark">
+  <div class="ch">THE ONE-SENTENCE TEST</div>
+  <div class="cb">The <strong>AirCradle Pillow</strong>, the only kids pillow with a contoured airway cradle, made for <strong>parents of 4 to 10 year olds whose kids sleep badly</strong> (snoring, mouth breathing, sore necks, restless nights) and who have learned that adult pillows and cheap kids pillows are the wrong shape for a growing head and neck.</div>
+</div>
+<table>
+  <thead><tr><th style="width:18%">Element</th><th>Decision</th></tr></thead>
+  <tbody>
+    <tr><td class="k">Market</td><td>Kids ergonomic pillows, premium tier ($55 to $70). Proven by Cloudnite (US) and Snorelux (EU/AU) scaling the same mechanism play on Meta. Healthy awareness ladder, no brand owns the funnel.</td></tr>
+    <tr><td class="k">Persona</td><td>P2, the Mum of Struggling Kids. Master avatar: Megan, 35, solution-aware, child 4 to 10 with a named sleep problem.</td></tr>
+    <tr><td class="k">Problem space</td><td>Five linked problems, one root: snoring and mouth breathing, neck pain and wrong pillow height, restless broken sleep, overheating, and the structural fact that children's heads and necks are not scaled-down adult anatomy.</td></tr>
+    <tr><td class="k">Mechanism</td><td>The AirCradle Contour: a contoured basin sized for a child's proportions that holds a neutral head and neck angle in any sleep position. Comfort product, never a medical device.</td></tr>
+    <tr><td class="k">Offer structure</td><td>1, 2, and 3 packs. Free shipping on all. Free travel cases at 2-pack, travel cases plus cooling cover at 3-pack. Free sleep guide on every order. 90-Night Quiet Sleep Guarantee.</td></tr>
+    <tr><td class="k">The gap</td><td>The premium tier sells the right story with fake trust signals (invented doctors, implausible review counts). The first credible mechanism brand wins the research-driven parent both incumbents scare off.</td></tr>
+    <tr><td class="k">Sophistication</td><td>Stage 3 (mechanism era just opened). Enter with a named mechanism, build stage-4 proof assets from day one.</td></tr>
+  </tbody>
+</table>
+
+<!-- P3 / 02 PROBLEM SPACE -->
+<div class="ppage"></div>
+<div class="sec">
+  <div class="sec-eyebrow-row"><span class="sec-num">02</span><span class="sec-slash">/</span><span class="sec-eyebrow">THE CUSTOMER</span></div>
+  <h1 class="sec-h1">The Problem Space.</h1>
+  <p class="sec-lead">One product, five entry problems. Each is a distinct ad concept and a distinct search behaviour. All resolve to the same mechanism.</p>
+</div>
+<table>
+  <thead><tr><th style="width:16%">Problem angle</th><th style="width:34%">In the parent's words (verbatim, sourced)</th><th style="width:26%">Search behaviour</th><th style="width:12%">Entry rung</th><th style="width:12%">Concept role</th></tr></thead>
+  <tbody>
+    <tr><td class="k">Snoring and mouth breathing</td><td class="q">"He snores SO LOUDLY, like hear it through his closed door loudly, and wakes 1-3 times a night." (Reddit r/toddlers)</td><td>"child snoring", "toddler snoring", "mouth breathing", adenoid threads</td><td>Problem aware, high emotion</td><td>Lead concept</td></tr>
+    <tr><td class="k">Neck pain and wrong pillow height</td><td class="q">"So many pillows either leave kids laying too low or awkwardly propped up." (Amazon review)</td><td>"kids pillow for neck pain", height and firmness questions in reviews</td><td>Problem aware</td><td>Concept 2</td></tr>
+    <tr><td class="k">Restless, broken sleep</td><td class="q">"Won't sleep more than a couple of hours straight without waking up." (Reddit r/toddlers)</td><td>"restless sleeper child", routine and sleep-training content</td><td>Problem aware, broad</td><td>Concept 3, cheapest reach</td></tr>
+    <tr><td class="k">Overheating and night sweats</td><td class="q">"He sweats like crazy and wakes up because he's hot. Repeat the cycle endlessly." (Reddit r/toddlers)</td><td>"cooling pillow kids", complaint language inside reviews</td><td>Solution aware</td><td>Feature concept</td></tr>
+    <tr><td class="k">Developmental fit (kids are not small adults)</td><td class="q">"The thickness is absolutely perfect, not too flat, not too fluffy, just right for her little head and neck." (Amazon review)</td><td>"when can toddler have pillow", "best pillow for kids", first-pillow guides</td><td>Solution aware, education-led</td><td>Evergreen education concept</td></tr>
+  </tbody>
+</table>
+<div class="callout">
+  <div class="ch">READ</div>
+  <div class="cb">The mechanism story unifies all five: a flat or adult-proportioned pillow puts a child's head at the wrong angle. Snoring, sore necks, tossing, and sweating are all downstream symptoms a parent can recognise their kid in. The ad concept picks the symptom; the page explains the shared cause.</div>
+</div>
+
+<!-- P4 / 03 DEMAND VOLUMES -->
+<div class="ppage"></div>
+<div class="sec">
+  <div class="sec-eyebrow-row"><span class="sec-num">03</span><span class="sec-slash">/</span><span class="sec-eyebrow">THE MARKET</span></div>
+  <h1 class="sec-h1">Demand Signals by Country.</h1>
+  <p class="sec-lead">Monthly Google search volume across the big-5 ad markets. Source: Google Ads data via Keyword Metrics Pro (Apify), June 2026.</p>
+</div>
+<table>
+  <thead><tr><th style="width:24%">Keyword</th><th class="c">US</th><th class="c">UK</th><th class="c">CA</th><th class="c">AU</th><th class="c">NZ</th><th class="c" style="width:11%">Competition</th><th style="width:10%">Bucket</th></tr></thead>
+  <tbody>
+    <tr><td class="k">memory foam pillow</td><td class="c win">49,500</td><td class="c">18,100</td><td class="c">5,400</td><td class="c">8,100</td><td class="c">n/a*</td><td class="c">HIGH</td><td>Category</td></tr>
+    <tr><td class="k">snoring</td><td class="c win">33,100</td><td class="c">8,100</td><td class="c">4,400</td><td class="c">3,600</td><td class="c">n/a*</td><td class="c">MEDIUM</td><td>Problem</td></tr>
+    <tr><td class="k">cooling pillow</td><td class="c">27,100</td><td class="c">5,400</td><td class="c">2,400</td><td class="c">2,900</td><td class="c">n/a*</td><td class="c">HIGH</td><td>Solution</td></tr>
+    <tr><td class="k">mouth breathing</td><td class="c win">27,100</td><td class="c">8,100</td><td class="c">3,600</td><td class="c">3,600</td><td class="c">n/a*</td><td class="c win">LOW</td><td>Problem</td></tr>
+    <tr><td class="k">toddler pillow</td><td class="c win">18,100</td><td class="c">6,600</td><td class="c">2,900</td><td class="c">5,400</td><td class="c">n/a*</td><td class="c">HIGH</td><td>Solution</td></tr>
+    <tr><td class="k">baby pillow</td><td class="c">14,800</td><td class="c">5,400</td><td class="c">2,400</td><td class="c">3,600</td><td class="c">n/a*</td><td class="c">HIGH</td><td>Solution</td></tr>
+    <tr><td class="k">childrens pillow</td><td class="c">3,600</td><td class="c">2,400</td><td class="c">720</td><td class="c">2,900</td><td class="c">n/a*</td><td class="c">HIGH</td><td>Solution</td></tr>
+    <tr><td class="k">anti snore pillow</td><td class="c">2,900</td><td class="c">3,600</td><td class="c">480</td><td class="c">1,600</td><td class="c">n/a*</td><td class="c">HIGH</td><td>Solution</td></tr>
+  </tbody>
+</table>
+<p class="small-note">*NZ is not supported by this run's data source; the production skill adds a DataForSEO actor with NZ location codes. Kid-specific long-tail terms ("child snoring", "kids pillow for neck pain", "when can toddler have pillow") sit below the Ads reporting threshold; their demand is visible in autosuggest and Reddit thread volume instead.</p>
+<ul class="dots">
+  <li><strong>Reading.</strong> Problem volume exists at scale, solution volume exists in every market, brand volume is tiny (Cloudnite: 110 US searches monthly). Healthy ladder, unowned funnel.</li>
+  <li><strong>Standout.</strong> "Mouth breathing" is the only high-volume term at LOW competition in every measured market. It is the content, SEO, and education wedge for the whole brand.</li>
+  <li><strong>UK note.</strong> "Anti snore pillow" indexes higher in the UK than the US. The snoring concept likely opens cheaper there.</li>
+  <li><strong>CPC range.</strong> US clicks are the dearest (mouth breathing $2.23, anti snore pillow $2.15); UK and AU problem clicks land between $0.51 and $2.08.</li>
+</ul>
+
+<!-- P5 / 03b TRENDS -->
+<div class="ppage"></div>
+<div class="sec">
+  <div class="sec-eyebrow-row"><span class="sec-num">03</span><span class="sec-slash">/</span><span class="sec-eyebrow">THE MARKET</span></div>
+  <h1 class="sec-h1">Keyword Trend, 5 Years.</h1>
+  <p class="sec-lead">Google Trends interest for the most generic category term, "kids pillow", US, June 2021 to June 2026. Monthly averages of weekly data, indexed 0 to 100.</p>
+</div>
+<div class="chart-card" style="padding: 16px 20px 10px;">
+  <div class="chart-kw">kids pillow · Google Trends US, 5 years <span class="chart-tag">BREAKOUT, FEB 2026</span></div>
+  <div class="chart-meta">2021 to 2025 baseline: index 5 to 15 · all-time peak: <strong>100, April 2026</strong> · current: 30</div>
+  <svg width="1000" height="190" viewBox="0 0 1000 190" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="8,166 8,158 25,156 41,156 58,156 75,155 91,149 108,151 125,155 141,155 158,155 175,156 191,157 208,156 225,154 241,155 258,156 275,156 292,148 308,149 325,155 342,156 358,156 375,157 392,157 408,155 425,155 442,155 458,156 475,155 492,148 508,150 525,156 542,156 558,155 575,155 592,156 608,154 625,153 642,154 658,155 675,154 692,146 708,143 725,153 742,153 759,154 775,155 792,154 809,153 825,147 842,150 859,154 875,152 892,143 909,144 925,150 942,115 959,122 975,37 992,83 992,166" fill="rgba(0,222,131,0.13)"/>
+    <polyline points="8,158 25,156 41,156 58,156 75,155 91,149 108,151 125,155 141,155 158,155 175,156 191,157 208,156 225,154 241,155 258,156 275,156 292,148 308,149 325,155 342,156 358,156 375,157 392,157 408,155 425,155 442,155 458,156 475,155 492,148 508,150 525,156 542,156 558,155 575,155 592,156 608,154 625,153 642,154 658,155 675,154 692,146 708,143 725,153 742,153 759,154 775,155 792,154 809,153 825,147 842,150 859,154 875,152 892,143 909,144 925,150 942,115 959,122 975,37 992,83" fill="none" stroke="#00DE83" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="975" cy="37" r="4" fill="#003C3C"/>
+    <text x="870" y="28" font-size="10" font-weight="700" fill="#003C3C">Apr 2026 peak: 100</text>
+    <line x1="8" y1="166" x2="992" y2="166" stroke="rgba(0,60,60,0.3)" stroke-width="1"/>
+    <text x="8" y="180" font-size="8.5" fill="#4A4A4A">Jun 2021</text>
+    <text x="115" y="180" font-size="8.5" fill="#4A4A4A">Jan 2022</text>
+    <text x="315" y="180" font-size="8.5" fill="#4A4A4A">Jan 2023</text>
+    <text x="515" y="180" font-size="8.5" fill="#4A4A4A">Jan 2024</text>
+    <text x="715" y="180" font-size="8.5" fill="#4A4A4A">Jan 2025</text>
+    <text x="915" y="180" font-size="8.5" fill="#4A4A4A">Jan 2026</text>
+  </svg>
+</div>
+<table>
+  <thead><tr><th style="width:14%">Year</th><th class="c" style="width:16%">Average interest</th><th>Read</th></tr></thead>
+  <tbody>
+    <tr><td class="k">2021 (from Jun)</td><td class="c">7.5</td><td>Flat baseline. Small November to December gift-season bump, repeated every year.</td></tr>
+    <tr><td class="k">2022</td><td class="c">7.5</td><td>Identical pattern. Dormant category.</td></tr>
+    <tr><td class="k">2023</td><td class="c">7.4</td><td>Identical pattern.</td></tr>
+    <tr><td class="k">2024</td><td class="c">8.3</td><td>First creep upward; December bump larger than prior years.</td></tr>
+    <tr><td class="k">2025</td><td class="c">9.8</td><td>Baseline lifts ~30 percent; July and November bumps strengthen.</td></tr>
+    <tr><td class="k win">2026 (Jan to May)</td><td class="c win">41.4</td><td class="win">Breakout. February jumps to 38, April hits the all-time peak of 100. Interest is running 4 to 5x the historic baseline right now.</td></tr>
+  </tbody>
+</table>
+<ul class="dots">
+  <li><strong>What the breakout means.</strong> A dormant category lit up in February 2026, almost certainly the Cloudnite and Snorelux paid push creating search demand. The wave is live and nobody owns the brand searches it generates.</li>
+  <li><strong>Season underneath it.</strong> The four-year baseline shows a repeatable November to December gift bump and a winter lift in problem terms. AU and NZ run counter-seasonal and smooth the calendar.</li>
+  <li><strong>Production note.</strong> This run charts the most generic term over 5 years; the production skill pulls the same 5-year series for every head term (toddler pillow, baby pillow, snoring, mouth breathing, memory foam pillow).</li>
+</ul>
+
+<!-- P6 / 04 AWARENESS -->
+<div class="ppage"></div>
+<div class="sec">
+  <div class="sec-eyebrow-row"><span class="sec-num">04</span><span class="sec-slash">/</span><span class="sec-eyebrow">THE CUSTOMER</span></div>
+  <h1 class="sec-h1">Awareness Ladder with Messaging.</h1>
+  <p class="sec-lead">Every asset declares one rung. The copy column is actual lines to use or adapt at that rung, written in the brand voice.</p>
+</div>
+<table>
+  <thead><tr><th style="width:10%">Rung</th><th style="width:19%">They type / see</th><th>What we say (copy lines to use)</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="k">Unaware</td>
+      <td>Nothing. Scrolling at 11pm.</td>
+      <td><ul>
+        <li>"Ever noticed the blanket is on the floor every single morning?"</li>
+        <li>"If your kid wakes up cranky after 10 hours in bed, the sleep wasn't as deep as it looked."</li>
+        <li>"Dark circles on a 6 year old aren't 'just genetics'."</li>
+        <li>"3 things your kid's morning mood is telling you about their nights."</li>
+        <li>"Most parents count how long their kid sleeps. The clue is how they're lying."</li>
+        <li>"He's not a bad sleeper. Something is making sleep hard work."</li>
+      </ul></td>
+    </tr>
+    <tr>
+      <td class="k">Problem aware</td>
+      <td>"child snoring at night", "kid wakes up tired", "mouth breathing"</td>
+      <td><ul>
+        <li>"If your child snores, it isn't a quirk. It's usually an angle."</li>
+        <li>"Mouth breathing at night means your kid is working harder than they should just to get air."</li>
+        <li>"You can hear the problem from the doorway. Tonight, look at where his chin is pointing."</li>
+        <li>"A sore neck at breakfast means the pillow failed overnight."</li>
+        <li>"It's not the routine. It's not screens. Sometimes it's the angle of one object in the bed."</li>
+        <li>"Kids' heads are proportionally bigger and their necks shorter. An adult pillow shape was never going to fit."</li>
+        <li>"There's a simple, no-appointment thing to check before anything drastic."</li>
+      </ul></td>
+    </tr>
+    <tr>
+      <td class="k">Solution aware</td>
+      <td>"best pillow for kids", "anti snore pillow", "kids memory foam pillow"</td>
+      <td><ul>
+        <li>"You tried the spray. You tried the routine. Nothing touched the way he actually lies."</li>
+        <li>"Sprays treat his nose. Routines treat the clock. Nothing treated his neck angle."</li>
+        <li>"A kids pillow isn't a small adult pillow. The proportions are completely different."</li>
+        <li>"The AirCradle Contour holds his head at the angle that keeps the airway open. That's the whole trick."</li>
+        <li>"Flat pillows let the chin drop. Cheap foams prop it too high. The cradle holds the middle."</li>
+        <li>"Back, side, tummy: both sides are contoured, so it works however he lands."</li>
+        <li>"90 nights to test it on the kid who's tried everything."</li>
+      </ul></td>
+    </tr>
+    <tr>
+      <td class="k">Product aware</td>
+      <td>"cloudnite review", "snorelux vs", brand searches</td>
+      <td><ul>
+        <li>"[X] reviews from real parents. Counted, not invented."</li>
+        <li>"CertiPUR foam, perforated core, two-sided contour. The $25 foams cut all three."</li>
+        <li>"He rolls everywhere? Good. Both sides are contoured for back, side, and tummy."</li>
+        <li>"One ENT consult costs $250+. This is $59.95 with 90 nights to prove itself."</li>
+        <li>"Batch [N] ships [date]. [X] units left in this batch, real count."</li>
+        <li>"If the nights aren't quieter inside 90, send it back. We pay the return."</li>
+      </ul></td>
+    </tr>
+    <tr>
+      <td class="k">Most aware</td>
+      <td>"[brand] discount", cart visits, email list</td>
+      <td><ul>
+        <li>"Your kit is still here. The 90-Night Quiet Sleep Guarantee covers every night of it."</li>
+        <li>"Free shipping, the sleep guide, and the travel cases are still attached to your order."</li>
+        <li>"Batch [N] ships [date]. Order today and you're in it."</li>
+        <li>"Questions? Reply to this email. A founder answers, usually same day."</li>
+        <li>"Nothing to decide tonight. You get 90 nights to decide at home."</li>
+      </ul></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- P7 / 05 MARKET MAP -->
+<div class="ppage"></div>
+<div class="sec">
+  <div class="sec-eyebrow-row"><span class="sec-num">05</span><span class="sec-slash">/</span><span class="sec-eyebrow">THE MARKET</span></div>
+  <h1 class="sec-h1">Market Map.</h1>
+  <p class="sec-lead">Eight players across three tiers. Links: store and live Meta Ad Library search.</p>
+</div>
+<table>
+  <thead><tr><th style="width:13%">Brand</th><th style="width:8%">Price</th><th style="width:30%">Positioning and mechanism</th><th style="width:27%">Strengths / weaknesses</th><th style="width:22%">Links</th></tr></thead>
+  <tbody>
+    <tr><td class="k">Cloudnite (input brand)</td><td>$59.95</td><td>"Recovery Pillow Kids." CloudDot contour, airway alignment plus posture, ages 4+. Pre-order batch model.</td><td>Strong conversion stack, 90-day guarantee. Fake-feeling doctor persona, implausible 10,839 review claim, template glitches.</td><td><a href="https://cloudnite.com">cloudnite.com</a><br><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=ALL&amp;q=cloudnite">Meta Ad Library</a></td></tr>
+    <tr><td class="k">Snorelux</td><td>EUR 62.95</td><td>Kids anti-snore pillow, butterfly contour, cites PubMed posture studies. Full anti-snore ecosystem.</td><td>Mechanism plus study citations. Perpetual 50 percent anchor, fake stock counters.</td><td><a href="https://snorelux.de/en">snorelux.de</a><br><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=ALL&amp;q=snorelux">Meta Ad Library</a></td></tr>
+    <tr><td class="k">KeaBabies</td><td>~$22</td><td>Organic cotton toddler pillow, comfort and materials story. Amazon-first.</td><td>9,900 brand searches, huge review base. Zero mechanism; batch inconsistency complaints in reviews.</td><td><a href="https://keababies.com">keababies.com</a><br><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=ALL&amp;q=keababies">Meta Ad Library</a></td></tr>
+    <tr><td class="k">Coop Sleep Goods Kids</td><td>$39</td><td>Adjustable-fill kids pillow, GREENGUARD Gold certification.</td><td>Quality reputation, 60,500 brand searches across range. Comfort-led, no airway story.</td><td><a href="https://coopsleepgoods.com">coopsleepgoods.com</a><br><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=ALL&amp;q=coop%20sleep%20goods">Meta Ad Library</a></td></tr>
+    <tr><td class="k">Little Sleepy Head</td><td>$20-25</td><td>The pediatric staple, three fill levels, ages 2 to 5.</td><td>Review-site darling. Pure comfort positioning.</td><td><a href="https://littlesleepyhead.com">littlesleepyhead.com</a><br><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=ALL&amp;q=little%20sleepy%20head">Meta Ad Library</a></td></tr>
+    <tr><td class="k">Avocado / Woolino</td><td>$45+</td><td>Organic premium. Materials and certifications, not sleep outcomes.</td><td>Different buyer (purity-led). Not a direct threat.</td><td><a href="https://avocadogreenmattress.com">avocadogreenmattress.com</a><br><a href="https://woolino.com">woolino.com</a></td></tr>
+    <tr><td class="k">Amazon contour foams</td><td>$20-30</td><td>FMS, Serenia and co. Same silhouette as the premium players.</td><td>"Too firm" and fit complaints throughout reviews. They define our sourcing brief.</td><td><a href="https://www.amazon.com/dp/B0D83L6TGQ">amazon.com example</a></td></tr>
+    <tr><td class="k">CloudAlign (adult analog)</td><td>$50+</td><td>Mellow Sleep running the identical mechanism play for adults.</td><td>Proof the playbook scales. "Scam or legit" is a top search; trust is the category ceiling.</td><td><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=ALL&amp;q=cloudalign">Meta Ad Library</a></td></tr>
+  </tbody>
+</table>
+
+<!-- P8 / 05b PRICING + 06 SOPHISTICATION -->
+<div class="ppage"></div>
+<div class="sec">
+  <div class="sec-eyebrow-row"><span class="sec-num">05</span><span class="sec-slash">/</span><span class="sec-eyebrow">THE MARKET</span></div>
+  <h1 class="sec-h1">Pricing Tiers and the Gap.</h1>
+</div>
+<table>
+  <thead><tr><th style="width:14%">Tier</th><th style="width:13%">Range</th><th style="width:33%">Who is here</th><th>What they sell on</th></tr></thead>
+  <tbody>
+    <tr><td class="k">Budget</td><td>Under $25</td><td>KeaBabies, Little Sleepy Head, Amazon foams</td><td>Comfort, cuteness, price. No mechanism, no problem ownership.</td></tr>
+    <tr><td class="k">Mid</td><td>$35 to $50</td><td>Coop Kids, Avocado, Woolino</td><td>Materials, certifications, brand trust. No airway or posture story.</td></tr>
+    <tr><td class="k win">Premium</td><td class="win">$55 to $70</td><td class="win">Cloudnite, Snorelux</td><td class="win">Named mechanism plus aggressive direct response. Weak, partly fabricated trust layer. Our tier.</td></tr>
+  </tbody>
+</table>
+<div class="callout-dark">
+  <div class="ch">THE GAP</div>
+  <div class="cb">Nobody at $55 to $70 passes a research-driven parent's sniff test. The position: <strong>the same mechanism, honestly proven.</strong> Real review counts, a real expert or none, honest batch logistics, education-first pages. The brand wins the buyer the incumbents scare off.</div>
+</div>
+<div class="sec" style="margin-top: 18px;">
+  <div class="sec-eyebrow-row"><span class="sec-num">06</span><span class="sec-slash">/</span><span class="sec-eyebrow">THE MARKET</span></div>
+  <h1 class="sec-h1">Market Sophistication.</h1>
+  <p class="sec-lead">Schwartz staging from live ad claims in the category, June 2026. The highlighted row is where the market sits today.</p>
+</div>
+<table>
+  <thead><tr><th style="width:14%">Stage</th><th style="width:25%">Claim state</th><th style="width:26%">Who is there</th><th>Implication</th></tr></thead>
+  <tbody>
+    <tr><td class="k">1. First claim</td><td>"A pillow for kids."</td><td>Long gone.</td><td>n/a</td></tr>
+    <tr><td class="k">2. Bigger claim</td><td>"Softest, organic, hypoallergenic, machine washable."</td><td>KeaBabies, Coop, Little Sleepy Head, the whole budget and mid tier.</td><td>These claims are burnt. Entering on comfort means competing with $22 incumbents on price.</td></tr>
+    <tr><td class="win k">3. Mechanism · THE MARKET IS HERE</td><td class="win">"CloudDot Technology", "butterfly shape", airway angle.</td><td class="win">Cloudnite and Snorelux, both recent.</td><td class="win">The entry point. A named, demonstrable mechanism is the price of admission and the differentiation.</td></tr>
+    <tr><td class="k">4. Better mechanism</td><td>Measured specs, demos, audio proof, named experts.</td><td>Nobody in kids yet.</td><td>The escalation to pre-empt: build the proof library from launch, before clones force it.</td></tr>
+    <tr><td class="k">5. Identity</td><td>"For mums who research." Brand-led, claim-light.</td><td>Adult market (CloudAlign) is sliding here.</td><td>The end state. Trust assets built now compound into this position.</td></tr>
+  </tbody>
+</table>
+
+<!-- P9 / 07 AVATAR MATRIX -->
+<div class="ppage"></div>
+<div class="sec">
+  <div class="sec-eyebrow-row"><span class="sec-num">07</span><span class="sec-slash">/</span><span class="sec-eyebrow">THE CUSTOMER</span></div>
+  <h1 class="sec-h1">Avatar Scoring Matrix.</h1>
+  <p class="sec-lead">Five candidates scored 1 to 5 on the six criteria, from evidence in the scraped threads and reviews. Checkpoint 1: the winner pauses for approval in a production run.</p>
+</div>
+<table>
+  <thead><tr><th style="width:20%">Criterion</th><th class="c">Snore-Worried Mum</th><th class="c">Restless-Sleep Mum</th><th class="c">Development Optimiser</th><th class="c">Sweaty-Sleeper Mum</th><th class="c">First-Pillow Upgrader</th></tr></thead>
+  <tbody>
+    <tr><td class="k">Pain severity</td><td class="c win">5</td><td class="c">4</td><td class="c">3</td><td class="c">3</td><td class="c">2</td></tr>
+    <tr><td class="k">Urgency / time pressure</td><td class="c win">5</td><td class="c">3</td><td class="c">2</td><td class="c">2</td><td class="c">2</td></tr>
+    <tr><td class="k">Readiness to act</td><td class="c win">5</td><td class="c">4</td><td class="c">3</td><td class="c">3</td><td class="c">3</td></tr>
+    <tr><td class="k">Ability to pay</td><td class="c">4</td><td class="c">4</td><td class="c">4</td><td class="c">3</td><td class="c">1</td></tr>
+    <tr><td class="k">Desire strength</td><td class="c win">5</td><td class="c">4</td><td class="c">3</td><td class="c">3</td><td class="c">3</td></tr>
+    <tr><td class="k">Objection friction (5 = low)</td><td class="c">3</td><td class="c">3</td><td class="c">3</td><td class="c">2</td><td class="c">3</td></tr>
+    <tr><td class="k">Total / 30</td><td class="c win">27</td><td class="c">22</td><td class="c">18</td><td class="c">16</td><td class="c">14</td></tr>
+    <tr><td class="k">Role</td><td class="c win">Master avatar</td><td class="c">Concept 2 + retargeting</td><td class="c">Page section, not a hero</td><td class="c">Feature angle</td><td class="c">Dead at our price. Leave to Amazon</td></tr>
+  </tbody>
+</table>
+<ul class="dots">
+  <li><strong>Kill rules applied.</strong> First-Pillow Upgrader fails on ability to pay (shops the $22 tier). Sweaty-Sleeper survives as a feature angle only; the perforated foam carries it inside other concepts.</li>
+  <li><strong>Evidence basis.</strong> Snore-Worried scores come from surgery-decision threads (long, emotional, every alternative tried); Restless-Sleep from broad sleep-deprivation threads; the rest from review language frequency.</li>
+</ul>
+
+<!-- P10 / 07b DOSSIER + OBJECTIONS -->
+<div class="ppage"></div>
+<div class="sec">
+  <div class="sec-eyebrow-row"><span class="sec-num">07</span><span class="sec-slash">/</span><span class="sec-eyebrow">THE CUSTOMER</span></div>
+  <h1 class="sec-h1">Master Avatar: Megan, 35.</h1>
+</div>
+<table>
+  <thead><tr><th style="width:18%">Field</th><th>Detail</th></tr></thead>
+  <tbody>
+    <tr><td class="k">Life</td><td>Two kids; the 6 year old sleeps badly. Works part-time. She owns this problem; her partner thinks it is fine.</td></tr>
+    <tr><td class="k">The 2am reality</td><td>Stands at his door listening. Has snore recordings on her phone. Checks he is breathing, then cannot fall back asleep herself.</td></tr>
+    <tr><td class="k">What she has tried</td><td>Nasal spray and antihistamines for months with no change, humidifier, air purifier, strict routine, blackout and white noise, "waiting it out".</td></tr>
+    <tr><td class="k">The fear</td><td>The GP mentioned adenoids and an ENT. Surgery terrifies her. She wants one calm, reversible thing to try first.</td></tr>
+    <tr><td class="k">Dream outcome</td><td>A silent baby monitor. A kid who wakes up rested, no dark circles, no 2am checks. Energy and mood, not "a better pillow".</td></tr>
+    <tr><td class="k">Home rung</td><td>Solution aware. Mechanism-break hooks, never problem-explainer hooks.</td></tr>
+    <tr><td class="k">Channels</td><td>r/toddlers, r/Parenting, mum Facebook groups, TikTok at 11pm.</td></tr>
+  </tbody>
+</table>
+<h2 class="sub">Ranked Objections</h2>
+<table>
+  <thead><tr><th style="width:4%">#</th><th style="width:28%">Objection (her words)</th><th style="width:46%">How it is answered</th><th>Where</th></tr></thead>
+  <tbody>
+    <tr><td class="c">1</td><td class="q">"Is this just a gimmick pillow?"</td><td>Mechanism explainer with the side-view angle diagram; published posture studies referenced plainly.</td><td>PDP top, advertorial</td></tr>
+    <tr><td class="c">2</td><td class="q">"We've tried everything already."</td><td>Category reframe: sprays and routines never touched sleep position. Different lever, not another version of the same one.</td><td>Ad hook, PDP section 2</td></tr>
+    <tr><td class="c">3</td><td class="q">"$60 for a kids pillow?"</td><td>Anchors: one ENT consult $250+, three failed cheap pillows $66, per-night cost under $0.25 across the guarantee window.</td><td>Offer block</td></tr>
+    <tr><td class="c">4</td><td class="q">"He rolls everywhere, he won't stay on it."</td><td>Two-sided contour for back, side, and tummy sleepers; honest FAQ language about rolling off.</td><td>FAQ, retargeting</td></tr>
+    <tr><td class="c">5</td><td class="q">"Is it safe for his age?"</td><td>Ages 4+, CertiPUR foam, washable cover, what it is not for (under 4s) stated plainly.</td><td>FAQ, PDP</td></tr>
+    <tr><td class="c">6</td><td class="q">"Looks like every other dropship brand."</td><td>Real review counts, founders visible, honest batch shipping dates. The trust layer is the differentiation.</td><td>Sitewide</td></tr>
+  </tbody>
+</table>
+
+<!-- P11 / 08 MECHANISM -->
+<div class="ppage"></div>
+<div class="sec">
+  <div class="sec-eyebrow-row"><span class="sec-num">08</span><span class="sec-slash">/</span><span class="sec-eyebrow">THE PLAY</span></div>
+  <h1 class="sec-h1">The Named Mechanism.</h1>
+  <p class="sec-lead">The cause-and-effect chain every asset draws from, and the name candidates. Checkpoint 2: the name pauses for approval and a trademark check.</p>
+</div>
+<table>
+  <thead><tr><th style="width:5%">Step</th><th style="width:16%">Stage</th><th style="width:46%">What happens</th><th>Evidence / source</th></tr></thead>
+  <tbody>
+    <tr><td class="c win">1</td><td class="k">Root cause</td><td>Flat or adult-proportioned pillows let a small head tip back or collapse forward. A child's head is proportionally larger and the neck shorter; adult geometry does not fit.</td><td>Pediatric posture literature; review language about height and fit</td></tr>
+    <tr><td class="c win">2</td><td class="k">Effect</td><td>The chin-down or tilted-back angle narrows the upper airway and loads the neck.</td><td>Published posture and snoring studies (PubMed)</td></tr>
+    <tr><td class="c win">3</td><td class="k">Symptoms</td><td>Snoring, mouth breathing, tossing, night sweats, morning neck soreness. The parent's exact search terms.</td><td>Voice of Customer Bank, sections 02 and 13</td></tr>
+    <tr><td class="c win">4</td><td class="k">What the product does</td><td>A contoured cradle sized for child proportions holds a neutral head and neck angle in back, side, and tummy positions. Perforated foam keeps airflow up.</td><td>Product spec</td></tr>
+    <tr><td class="c win">5</td><td class="k">Why that works</td><td>Neutral alignment keeps the airway open and the neck unloaded. Position change, not medication.</td><td>Posture studies; honest framing</td></tr>
+    <tr><td class="c win">6</td><td class="k">Outcome</td><td>Quieter breathing, fewer wake-ups, cooler sleep. Honest timeframe: nights to weeks, varies by child.</td><td>Post-purchase surveys once live</td></tr>
+  </tbody>
+</table>
+<h2 class="sub">Name Candidates</h2>
+<table>
+  <thead><tr><th style="width:22%">Candidate</th><th style="width:46%">Rationale</th><th>Risk</th></tr></thead>
+  <tbody>
+    <tr><td class="k win">AirCradle Contour · RECOMMENDED</td><td class="win">Says what it does, sounds engineered, demos in one side-view diagram. Clear of CloudDot.</td><td class="win">Needs a trademark sanity check before lock.</td></tr>
+    <tr><td class="k">NightAlign Basin</td><td>Strong alignment story.</td><td>Slightly clinical; weaker kid warmth.</td></tr>
+    <tr><td class="k">OpenAir Cradle</td><td>Benefit-forward, soft.</td><td>Sounds like a feature, not a technology.</td></tr>
+    <tr><td class="k">DreamAngle System</td><td>Ownable, kid-friendly.</td><td>Weakest link to the airway story.</td></tr>
+  </tbody>
+</table>
+
+<!-- P12 / 08b CLAIMS + 09 BENEFITS -->
+<div class="ppage"></div>
+<div class="sec">
+  <div class="sec-eyebrow-row"><span class="sec-num">08</span><span class="sec-slash">/</span><span class="sec-eyebrow">THE PLAY</span></div>
+  <h1 class="sec-h1">Claim Ceilings.</h1>
+</div>
+<table>
+  <thead><tr><th style="width:50%">Approved claims</th><th>Banned claims</th></tr></thead>
+  <tbody>
+    <tr><td>"Supports a neutral sleep posture."</td><td>Treats, prevents, or fixes sleep apnea or any disorder.</td></tr>
+    <tr><td>"Designed to keep the head in a position that supports easy nasal breathing."</td><td>"Stops snoring" as a flat promise.</td></tr>
+    <tr><td>"Sized for a child's head and neck proportions, not a shrunken adult pillow."</td><td>Any developmental, orthodontic, or craniofacial outcome claim.</td></tr>
+    <tr><td>"Many parents report quieter nights" (only with real survey data, n stated).</td><td>"Doctor recommended" without a named, consenting, real practitioner.</td></tr>
+  </tbody>
+</table>
+<p class="small-note">Cloudnite's own medical disclaimer marks where the regulatory line sits. One step over it invites an FTC, ACCC, or TGA letter in a children's category.</p>
+<div class="sec" style="margin-top: 18px;">
+  <div class="sec-eyebrow-row"><span class="sec-num">09</span><span class="sec-slash">/</span><span class="sec-eyebrow">THE PLAY</span></div>
+  <h1 class="sec-h1">Benefits Mapped to Desires.</h1>
+</div>
+<table>
+  <thead><tr><th style="width:19%">Feature</th><th style="width:26%">Benefit</th><th style="width:33%">Desire (verbatim where possible)</th><th>LF8 drive</th></tr></thead>
+  <tbody>
+    <tr><td class="k">AirCradle Contour basin</td><td>Holds the open-airway angle all night</td><td class="q">"No more standing at his door listening."</td><td>7. Care of loved ones</td></tr>
+    <tr><td class="k">Child-proportioned height</td><td>No more too-low or propped-up sleeping</td><td class="q">"So many pillows either leave kids laying too low or awkwardly propped up."</td><td>7 / 3</td></tr>
+    <tr><td class="k">Perforated, breathable foam</td><td>Breaks the sweat-wake-freeze cycle</td><td class="q">"He sweats like crazy and wakes up because he's hot."</td><td>5. Comfortable conditions</td></tr>
+    <tr><td class="k">Two-sided contour</td><td>Back, side, and tummy sleepers all supported</td><td>Works for the kid who rolls everywhere; no bedtime fight</td><td>3. Freedom from worry</td></tr>
+    <tr><td class="k">90-Night Quiet Sleep Guarantee</td><td>A full season to judge it</td><td class="q">"I want to make sure I'm not making a huge mistake."</td><td>3. Freedom from fear</td></tr>
+  </tbody>
+</table>
+
+<!-- P13 / 09b LF8 -->
+<div class="ppage"></div>
+<div class="sec">
+  <div class="sec-eyebrow-row"><span class="sec-num">09</span><span class="sec-slash">/</span><span class="sec-eyebrow">THE PLAY</span></div>
+  <h1 class="sec-h1">LF8 Map (Cashvertising).</h1>
+  <p class="sec-lead">All eight life-force drives, scored for this brand. The primary drive sets the emotional register of every asset.</p>
+</div>
+<table>
+  <thead><tr><th style="width:26%">Life-force drive</th><th class="c" style="width:11%">Relevance</th><th>How the brand uses it</th></tr></thead>
+  <tbody>
+    <tr><td class="k">1. Survival, life extension</td><td class="c">Medium</td><td>Healthy growth and rest framing. Kept inside claim ceilings; never developmental promises.</td></tr>
+    <tr><td class="k">2. Enjoyment of food and drink</td><td class="c">n/a</td><td>Not used.</td></tr>
+    <tr><td class="k">3. Freedom from fear, pain, danger</td><td class="c win">High</td><td>The calm step before medical escalation. The guarantee removes the "huge mistake" fear. Never poke the surgery fear directly.</td></tr>
+    <tr><td class="k">4. Sexual companionship</td><td class="c">n/a</td><td>Not used.</td></tr>
+    <tr><td class="k">5. Comfortable living conditions</td><td class="c win">High</td><td>Cool, quiet nights. A calm house at 2am. The sweat-cycle fix.</td></tr>
+    <tr><td class="k">6. To be superior, winning</td><td class="c">Low</td><td>Subtle: the parent who found the thing that worked. Never smugness.</td></tr>
+    <tr><td class="k win">7. Care and protection of loved ones</td><td class="c win">Primary</td><td class="win">The master emotion. Every asset resolves to a mother's protection drive expressed as relief from vigilance.</td></tr>
+    <tr><td class="k">8. Social approval</td><td class="c">Medium</td><td>Sleepovers and camps without dread; what she tells the mum group; the kid proud of his "big kid" pillow.</td></tr>
+  </tbody>
+</table>
+
+<!-- P14 / 10 OFFERS -->
+<div class="ppage"></div>
+<div class="sec">
+  <div class="sec-eyebrow-row"><span class="sec-num">10</span><span class="sec-slash">/</span><span class="sec-eyebrow">THE PLAY</span></div>
+  <h1 class="sec-h1">Offer Architecture.</h1>
+  <p class="sec-lead">Standard 1-2-3 pack structure. Free shipping on every order. Gifts unlock at the 2 and 3 packs; the guide and guarantee apply to all. Checkpoint 3: pricing and gift mix pause for approval.</p>
+</div>
+<table>
+  <thead><tr><th style="width:13%">Pack</th><th class="c" style="width:9%">Price</th><th class="c" style="width:10%">Per pillow</th><th class="c" style="width:12%">Saving</th><th class="c" style="width:9%">Shipping</th><th style="width:24%">Free gifts</th><th>Role</th></tr></thead>
+  <tbody>
+    <tr><td class="k">1-pack</td><td class="c">$59.95</td><td class="c">$59.95</td><td class="c">base</td><td class="c">Free</td><td>Quiet Nights sleep guide (digital)</td><td>Entry. Every ad lands here first.</td></tr>
+    <tr><td class="k win">2-pack · PRE-SELECTED</td><td class="c win">$99.95</td><td class="c win">$50.00</td><td class="c win">$19.95 (17%)</td><td class="c win">Free</td><td class="win">Guide + 2 travel cases ($39.90 value)</td><td class="win">Siblings default. The AOV engine; one snorer usually has a restless sibling.</td></tr>
+    <tr><td class="k">3-pack</td><td class="c">$134.95</td><td class="c">$45.00</td><td class="c">$44.90 (25%)</td><td class="c">Free</td><td>Guide + 3 travel cases + cooling pillowcase</td><td>Bulk and gifting (cousins, grandparents). Deepest discount lives here only.</td></tr>
+  </tbody>
+</table>
+<h2 class="sub">Offer Rules</h2>
+<ul class="dots">
+  <li><strong>Guarantee.</strong> The 90-Night Quiet Sleep Guarantee, named, on every pack. Minimum 14 nights of use before refund, stated transparently.</li>
+  <li><strong>Gifts kill objections.</strong> Travel cases answer "he takes it everywhere"; the cooling case answers the sweat angle; the guide answers "we've tried everything" by adding a method around the product.</li>
+  <li><strong>Discount discipline.</strong> Bulk discount is the only discount. No sitewide codes, no abandoned-cart discounts; the guarantee is the incentive.</li>
+  <li><strong>Urgency.</strong> Real batch logistics only: "Batch 3 ships June 19. X units left." No resetting timers, no fake sold-percent meters.</li>
+  <li><strong>Post-purchase OTO.</strong> The Grow Plan ($19.95/yr: spare cover now, half-price size upgrade later, priority replacement) runs on the thank-you page only. Never a fourth option on the PDP.</li>
+  <li><strong>Anchors.</strong> One ENT consult $250+. Three failed cheap pillows $66. Per-night cost under $0.25 across the guarantee window.</li>
+</ul>
+
+<!-- P15 / 11 BELIEFS -->
+<div class="ppage"></div>
+<div class="sec">
+  <div class="sec-eyebrow-row"><span class="sec-num">11</span><span class="sec-slash">/</span><span class="sec-eyebrow">THE PLAY</span></div>
+  <h1 class="sec-h1">Necessary Beliefs.</h1>
+  <p class="sec-lead">Eight beliefs in purchase order. A buyer who accepts all eight has no objection left. Order is binding: belief 5 cannot land before belief 3.</p>
+</div>
+<table>
+  <thead><tr><th style="width:4%">#</th><th style="width:27%">Belief</th><th style="width:12%">Stage</th><th style="width:34%">Proof</th><th>Placement</th></tr></thead>
+  <tbody>
+    <tr><td class="c">1</td><td class="k">"His bad nights aren't just a quirk."</td><td>Problem aware</td><td>Symptom cluster in parent language: snoring, dark circles, restless nights, sore necks.</td><td>Cold hooks, advertorial opening</td></tr>
+    <tr><td class="c">2</td><td class="k">"What I've tried never touched the cause."</td><td>Problem aware</td><td>Sprays target the nose, routines target the clock; neither touches sleep position.</td><td>Advertorial middle, email 2</td></tr>
+    <tr><td class="c">3</td><td class="k">"Sleep position is a real, legitimate lever."</td><td>Solution aware</td><td>Published posture studies, plain-language angle diagram.</td><td>PDP mechanism section, email 3</td></tr>
+    <tr><td class="c">4</td><td class="k">"A contoured kids pillow fits our life better than escalating."</td><td>Solution aware</td><td>Cost and effort comparison: one calm purchase vs appointments and procedures.</td><td>PDP comparison strip</td></tr>
+    <tr><td class="c">5</td><td class="k">"This one is built better than the $25 foams."</td><td>Product aware</td><td>CertiPUR foam, perforation, two-sided contour, the exact complaints the cheap versions earn ("too firm", inconsistent batches).</td><td>Quality section, retargeting A</td></tr>
+    <tr><td class="c">6</td><td class="k">"This brand is real."</td><td>Product aware</td><td>Real review counts, visible founders, honest shipping dates. The anti-Cloudnite.</td><td>About block, email 1</td></tr>
+    <tr><td class="c">7</td><td class="k">"Kids like mine sleep quieter on it."</td><td>Product aware</td><td>Named-parent testimonials with timeframes; before-and-after audio once collected.</td><td>Review wall, retargeting B</td></tr>
+    <tr><td class="c">8</td><td class="k">"There's no risk in trying it."</td><td>Most aware</td><td>The 90-Night Quiet Sleep Guarantee, named and explained.</td><td>Offer block, cart, abandoned email 1</td></tr>
+  </tbody>
+</table>
+
+<!-- P16 / 12 TESTING -->
+<div class="ppage"></div>
+<div class="sec">
+  <div class="sec-eyebrow-row"><span class="sec-num">12</span><span class="sec-slash">/</span><span class="sec-eyebrow">THE PLAY</span></div>
+  <h1 class="sec-h1">Testing Architecture: Concepts vs the Hero.</h1>
+  <p class="sec-lead">Ad concepts discover audiences; the store converts one person. The two never conflict because they operate at different layers with different jobs.</p>
+</div>
+<p class="body">Adsets launch as concepts: one persona crossed with one problem. Each concept's ad speaks entirely to that person and that pain. The click then lands on a destination matched to the concept, usually an advertorial whose opening continues the ad's frame before converging on the shared mechanism and offer. The PDP, homepage, and email welcome flow stay written to the master avatar only. Hero copy converts the hero; concept ads harvest adjacent segments who self-select through the ad and are bridged into the same argument. A concept that consistently outconverts the hero triggers a research review, never a quiet rewrite of the core pages.</p>
+<table>
+  <thead><tr><th style="width:19%">Concept (persona x problem)</th><th style="width:32%">Example hook</th><th style="width:22%">Destination</th><th>What stays hero-locked</th></tr></thead>
+  <tbody>
+    <tr><td class="k">Snore-Worried Mum x snoring</td><td class="q">"Sprays treat his nose. Nothing treated his neck angle."</td><td>Advertorial A (snoring opening), then PDP</td><td rowspan="5">PDP, homepage, email welcome flow, brand voice, offer structure, the mechanism story. Always written to Megan.</td></tr>
+    <tr><td class="k">Neck-Pain Parent x sore mornings</td><td class="q">"He wakes up rubbing his neck. His pillow is built for a head twice his size."</td><td>Advertorial B (fit and height opening)</td></tr>
+    <tr><td class="k">Restless-Sleep Mum x broken nights</td><td class="q">"Third wake-up before midnight? Watch how he's lying, not how long."</td><td>Advertorial C (restless opening)</td></tr>
+    <tr><td class="k">Hot-Sleeper x night sweats</td><td class="q">"He's not a 'hot sleeper'. His pillow has no airflow."</td><td>PDP direct (feature-led, solution aware)</td></tr>
+    <tr><td class="k">Grandparent gifter x sleepover season</td><td class="q">"The big-kid pillow grandkids actually keep."</td><td>3-pack offer page</td></tr>
+  </tbody>
+</table>
+
+<!-- P17 / 13 VOC -->
+<div class="ppage"></div>
+<div class="sec">
+  <div class="sec-eyebrow-row"><span class="sec-num">13</span><span class="sec-slash">/</span><span class="sec-eyebrow">THE BANK</span></div>
+  <h1 class="sec-h1">Voice of Customer Bank.</h1>
+  <p class="sec-lead">Verbatim only, every quote sourced and tagged. This run banked 54 usable quotes against a production floor of 130; flagged as below minimum rather than padded.</p>
+</div>
+<table>
+  <thead><tr><th style="width:22%">Category</th><th class="c" style="width:9%">Banked</th><th class="c" style="width:9%">Floor</th><th>Primary sources this run</th></tr></thead>
+  <tbody>
+    <tr><td class="k">Pain language</td><td class="c">16</td><td class="c">30</td><td>Reddit r/toddlers, r/Parenting</td></tr>
+    <tr><td class="k">Outcome language</td><td class="c">13</td><td class="c">30</td><td>Amazon reviews, Reddit post-surgery threads</td></tr>
+    <tr><td class="k">Objection language</td><td class="c">9</td><td class="c">20</td><td>Reddit, Amazon critical reviews</td></tr>
+    <tr><td class="k">Comparison language</td><td class="c">8</td><td class="c">20</td><td>Amazon reviews, Cloudnite PDP (flagged unverified)</td></tr>
+    <tr><td class="k">Identity language</td><td class="c">5</td><td class="c">15</td><td>Reddit, Amazon</td></tr>
+    <tr><td class="k">Discovery language</td><td class="c">3</td><td class="c">15</td><td>Reddit</td></tr>
+  </tbody>
+</table>
+<h2 class="sub">Sample Rows</h2>
+<table>
+  <thead><tr><th style="width:56%">Quote (verbatim)</th><th style="width:24%">Source</th><th>Category</th></tr></thead>
+  <tbody>
+    <tr><td class="q">"She seems tired all the time (even though she's simultaneously hyper) - dark circles around her eyes."</td><td>Reddit r/toddlers, 2026</td><td>Pain</td></tr>
+    <tr><td class="q">"I don't want to put him through surgery without some sort of confirmation."</td><td>Reddit r/toddlers, 2026</td><td>Objection / fear</td></tr>
+    <tr><td class="q">"He started sleeping so much better after he got a pillow (like sleeping through the night better!)"</td><td>Amazon review, KeaBabies, 2026</td><td>Outcome</td></tr>
+    <tr><td class="q">"I was nervous to give my 18 month old her first pillow."</td><td>Amazon review, KeaBabies, 2026</td><td>Objection</td></tr>
+    <tr><td class="q">"One says premium microfiber and one says 100% polyester... You should be able to order which one you want rather than get a random one."</td><td>Amazon review, KeaBabies, 2026</td><td>Comparison / quality gap</td></tr>
+    <tr><td class="q">"We can already tell a huge difference with his sleep quality, energy levels and speech. My only regret is that we didn't do it sooner."</td><td>Reddit r/toddlers, 2026</td><td>Outcome (dream)</td></tr>
+    <tr><td class="q">"We tried three other kids' pillows before this, all either too flat, too thick, or cheap quality."</td><td>Cloudnite PDP review (unverified)</td><td>Comparison</td></tr>
+  </tbody>
+</table>
+<ul class="dots">
+  <li><strong>Rules.</strong> Quote verbatim or not at all. Competitor-site reviews are language only, never proof. Refresh quarterly with 20+ new quotes. Search the bank before writing any asset.</li>
+</ul>
+
+<!-- P18 / 14 RUN NOTES -->
+<div class="ppage"></div>
+<div class="sec">
+  <div class="sec-eyebrow-row"><span class="sec-num">14</span><span class="sec-slash">/</span><span class="sec-eyebrow">APPENDIX</span></div>
+  <h1 class="sec-h1">Run Notes, Gaps, and Sources.</h1>
+</div>
+<table>
+  <thead><tr><th style="width:22%">Item</th><th style="width:15%">Status</th><th>Detail</th></tr></thead>
+  <tbody>
+    <tr><td class="k">Per-country volumes</td><td>Fixed (4 of 5)</td><td>US, UK, CA, AU pulled with 12-month series. NZ unsupported by the source; production adds a DataForSEO actor with NZ location codes.</td></tr>
+    <tr><td class="k">Trend graphs</td><td>Added</td><td>12-month series for six generic head terms, charted. Production can extend to 4-year Google Trends per term.</td></tr>
+    <tr><td class="k">Amazon review text</td><td>Fixed</td><td>Swapped to the web_wanderer extractor; full review bodies captured this run.</td></tr>
+    <tr><td class="k">TrendTrack</td><td>Open</td><td>Not connected this session. Market and ad intel came from live web research plus Ad Library links; production calls TrendTrack first.</td></tr>
+    <tr><td class="k">Quote bank depth</td><td>Below floor</td><td>54 of 130. Production keeps mining (more ASINs, more subreddits, ad comments, YouTube) before any copy is written.</td></tr>
+    <tr><td class="k">Checkpoint decisions</td><td>Defaulted for demo</td><td>Avatar (Snore-Worried Mum), mechanism name (AirCradle Contour), offer mix (1-2-3 pack). All three pause for approval in production.</td></tr>
+  </tbody>
+</table>
+<table>
+  <thead><tr><th style="width:32%">Source</th><th>Used for</th></tr></thead>
+  <tbody>
+    <tr><td><a href="https://cloudnite.com/products/recovery-pillow-kids">cloudnite.com</a></td><td>Input product, pricing, offer structure, claims, disclaimer</td></tr>
+    <tr><td><a href="https://snorelux.de/en/products/girls-anti-snore-pillow">snorelux.de</a></td><td>Direct competitor mechanism, pricing, study citations</td></tr>
+    <tr><td>Reddit r/toddlers, r/Parenting (170+ posts and comments scraped)</td><td>Pain, fear, failed-solution, and outcome language</td></tr>
+    <tr><td>Amazon reviews (KeaBabies B077MB5SZG, contour foams B0D83L6TGQ, B006LPVNR2)</td><td>Comparison, quality-gap, and first-pillow language</td></tr>
+    <tr><td>Trustpilot: keababies.com (40 reviews)</td><td>Budget-tier sentiment</td></tr>
+    <tr><td>Google Ads data via Keyword Metrics Pro (Apify), June 2026</td><td>Volumes, CPC, competition, 12-month trend series per country</td></tr>
+    <tr><td>The Bump, Sleepopolis, Mother and Baby roundups; TechTimes CloudAlign coverage</td><td>Pricing tiers, adult-analog trust signals</td></tr>
+  </tbody>
+</table>
+
+</body>
+</html>
