@@ -9,7 +9,7 @@ The canonical worked example is `examples/master-research-report-example.html` (
 - Running header via `@top-left` ("MASTER RESEARCH REPORT") and `@top-right` ("<PRODUCT CATEGORY> · <MONTH YEAR>").
 - Footer: brand mark at `@bottom-left` (`assets/brand-mark-small.png`, pre-scaled to 16px tall) and page counter at `@bottom-center`.
 - Cover is a named page (`page: cover`, margin 0): baked PNG background (`assets/cover-bg.png`), white brand wordmark 40px top-left **wrapped in a div**, 104px solid-white title "Master Research Report.", emerald divider + subhead (market, input link, date), INSIDE meta block bottom-right.
-- The bundled `assets/brand-wordmark-white.png` and `assets/brand-mark-small.png` are placeholders. Swap them for your own white wordmark and small logo mark to brand the report.
+- The bundled `assets/brand-wordmark-white.png` and `assets/brand-mark-small.png` carry the Lifestyle Brands marks by default. Swap them for your own white wordmark and small logo mark to put your brand on the report.
 - One section per page: each section after the first starts with `<div class="ppage"></div>` (page-break-before). A section too big for one page is split into two deliberate pages at a logical boundary (e.g. matrix / dossier).
 
 ## Brand tokens
