@@ -2,6 +2,8 @@
 
 A Claude skill that turns one competitor link into a complete customer research report for a DTC brand.
 
+Built by [Joe](https://instagram.com/joekatf) at Lifestyle Brands. This is the exact research engine behind his own brand launches, free to take and run for yours.
+
 You give it a competitor URL, an Alibaba link, or a product description. It runs a nine-stage research pipeline and delivers the **Master Research Report**: a locked-format PDF with everything needed to position, price, and launch a single-hero-product brand.
 
 ## What the report contains
@@ -45,7 +47,11 @@ Answer the intake questions, then let it run. It pauses at three checkpoints: av
 
 ## Make it yours
 
-The report ships with placeholder branding. To put your own brand on it, replace `assets/brand-wordmark-white.png` (white logo, shown on the dark cover) and `assets/brand-mark-small.png` (small footer mark). The colour tokens live in `references/report-template.md` if you want to change the palette.
+The report ships with the Lifestyle Brands cover marks. To put your own brand on it, replace `assets/brand-wordmark-white.png` (white logo, shown on the dark cover) and `assets/brand-mark-small.png` (small footer mark). The colour tokens live in `references/report-template.md` if you want to change the palette.
+
+## Questions
+
+Joe posts brand-building breakdowns, including runs of this exact skill, on Instagram: [@joekatf](https://instagram.com/joekatf). DM him what you launch with it.
 
 ## License
 
